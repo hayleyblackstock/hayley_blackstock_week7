@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-  skip_before_action :ensure_current_user
+  skip_before_action :authenticate
 
   def new
     @user = User.new
