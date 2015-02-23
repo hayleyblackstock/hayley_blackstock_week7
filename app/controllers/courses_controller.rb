@@ -10,6 +10,10 @@ before_action :authenticate
     @course = Course.new
   end
 
+  def edit
+    @course = Course.find(params[:id])
+  end
+
   def create
     @course = Course.new(course_params)
     if @course.save
@@ -18,6 +22,17 @@ before_action :authenticate
       render :new
     end
   end
+
+  def update
+    @course = Course.find(params[:id])
+    if @course.update(course_params)
+      redirect_to courses_path
+    else
+      render :edit
+    end
+  end
+
+
 
   def show
     @course = Course.find(params[:id])
