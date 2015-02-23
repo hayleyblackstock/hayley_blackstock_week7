@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HayleyBlackstockWeek7</title>
+<title>HayleyBlackstockWeek7</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
+
+  <% if current_user%>
+    <%= link_to current_user.user_name %> |
+    <%= link_to "signout", signout_path %>
+  <% else %>
+    <%= link_to "signup", new_registrations_path %> |
+    <%= link_to "signin", signin_path %>
+<% end %>
 
 <%= yield %>
 
-</body>
-</html>
+  </body>
+  </html>

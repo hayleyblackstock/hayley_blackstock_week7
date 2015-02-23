@@ -1,0 +1,18 @@
+
+<h1> Welcome to the list of Courses! </h1>
+<table>
+  <tr>
+    <th> Title </th>
+    <th> Day or Night </th>
+    <th> Remove Course </th>
+  </tr>
+
+  <tbody>
+    <% @courses.each do |course| %>
+    <td> <%= link_to course.title, course_path(course) %></td>
+    <td> <%= course.day_night %></td>
+    <td> <%= link_to "delete course", course_path(course), method: :delete %> </td>
+  </tbody>
+</table>
+
+<% end %>
