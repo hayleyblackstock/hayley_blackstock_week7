@@ -1,0 +1,8 @@
+<h1>Title: <%= @course.title %></h1>
+<br>
+<%= "Day or Night:" %>
+<% if @course.day_night == true %>
+<%= "Day" %>
+<% else %>
+<%= "Night" %>
+<% end %>

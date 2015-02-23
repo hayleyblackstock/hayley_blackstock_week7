@@ -1,7 +1,9 @@
 class CoursesController < ApplicationController
 
+before_action :authenticate
+
   def index
-    @course = Course.all
+    @courses = Course.all
   end
 
   def new

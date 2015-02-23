@@ -1,18 +1,24 @@
-
+<br>
+<%= link_to 'Add Course', new_course_path %>
 <h1> Welcome to the list of Courses! </h1>
-<table>
+<table  border="1">
   <tr>
     <th> Title </th>
     <th> Day or Night </th>
-    <th> Remove Course </th>
+    <th> Update or Remove Course </th>
   </tr>
 
   <tbody>
     <% @courses.each do |course| %>
+    <tr>
     <td> <%= link_to course.title, course_path(course) %></td>
-    <td> <%= course.day_night %></td>
-    <td> <%= link_to "delete course", course_path(course), method: :delete %> </td>
+    <% if course.day_night == true %>
+    <td>Day</td>
+    <% else %>
+    <td>Night</td>
+    <% end %>
+    <td> <%= link_to "Update Course", course_path(course) %><%= link_to "Delete Course", course_path(course), method: :delete %> </td>
+  </tr>
   </tbody>
+  <% end %>
 </table>
-
-<% end %>

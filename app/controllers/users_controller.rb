@@ -1,6 +1,6 @@
-class UsersController <ApplicationsController
+class UsersController <ApplicationController
 
-  skip_before_action :authenticate
+before_action :authenticate
 
   def new
     @user = User.new
@@ -17,7 +17,7 @@ class UsersController <ApplicationsController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_path
+      redirect_to root_path
     else
       render :new
     end
@@ -44,7 +44,7 @@ class UsersController <ApplicationsController
 
 private
 def user_params
-  params.requrie(:user).permit(:user_name, :password, :about)
+  params.require(:user).permit(:user_name, :password, :about)
 end
 
 end

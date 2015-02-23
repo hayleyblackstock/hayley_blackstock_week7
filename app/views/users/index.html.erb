@@ -1,10 +1,14 @@
+<br>
+<%= link_to 'Course List', courses_path %>
 <h1> Students </h1>
-<table>
+<%= link_to 'Create Student', new_user_path %>
+<table border="1">
 
   <thead>
     <tr>
       <th> User Name </th>
       <th> About </th>
+      <th> Update or Delete </th>
     </tr>
   </thead>
 
@@ -13,10 +17,10 @@
     <tr>
       <td><%= link_to user.user_name, user %></td>
       <td><%= user.about %></td>
-      <td><%= link_to 'Edit User', edit_user_path(user) %>
-        <%= link_to 'Destroy User', user, method: :delete %>
+      <td><%= link_to 'Edit Student', edit_user_path(user) %>
+        <%= link_to 'Destroy Student', user, method: :delete %>
       </td>
     </tr>
-    <% end %>    
+    <% end %>
 </tbody>
 </table>
